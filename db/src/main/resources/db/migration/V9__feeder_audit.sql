@@ -69,9 +69,7 @@ ALTER TABLE ehr.feeder_system_item_ids
 ADD CONSTRAINT feeder_audit_fk
 FOREIGN KEY (feeder_audit_id)
 REFERENCES ehr.feeder_audit(id)
-ON DELETE CASCADE;     time_tz TEXT,
-                                       version_id TEXT
-);
+ON DELETE CASCADE;
 
 -- CREATE TABLE ehr.originating_system_audit (LIKE ehr.feeder_audit_details);
 -- CREATE TABLE ehr.feeder_system_audit (LIKE ehr.feeder_audit_details);
