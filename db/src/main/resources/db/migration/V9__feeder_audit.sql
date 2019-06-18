@@ -71,13 +71,3 @@ FOREIGN KEY (feeder_audit_id)
 REFERENCES ehr.feeder_audit(id)
 ON DELETE CASCADE;
 
--- CREATE TABLE ehr.originating_system_audit (LIKE ehr.feeder_audit_details);
--- CREATE TABLE ehr.feeder_system_audit (LIKE ehr.feeder_audit_details);
-
-CREATE TABLE ehr.feeder_audit (
-                                id UUID PRIMARY KEY DEFAULT uuid_generate_v4() ,
-                                composition_id UUID REFERENCES ehr.composition(id),
-                                originating_system_audit UUID REFERENCES ehr.originating_system_audit(id) ON DELETE CASCADE ,
-                                original_content BYTEA,
-                                feeder_system_audit UUID REFERENCES ehr.feeder_system_audit(id)  ON DELETE CASCADE
-);
